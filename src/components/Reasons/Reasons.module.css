@@ -1,0 +1,148 @@
+.section {
+  margin-top: 28px;
+}
+
+.title {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 4vw, 38px);
+  animation: titleSheen 6s ease-in-out infinite;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 80, 115, 0.32);
+  padding: 16px;
+  background: linear-gradient(145deg, rgba(69, 20, 32, 0.32), rgba(18, 8, 14, 0.94));
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  animation: reasonIn 0.68s ease both;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: auto -35% -60% auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 68, 128, 0.22), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.iconWrap {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 105, 140, 0.45);
+  color: #ffa3c4;
+  background: rgba(255, 55, 95, 0.06);
+  animation: iconSpinBob 5.5s ease-in-out infinite;
+}
+
+.iconSvg {
+  width: 26px;
+  height: 26px;
+}
+
+.copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.copy h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.copy p {
+  margin: 0;
+  color: #d8b8c3;
+  line-height: 1.45;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 150, 175, 0.55);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover .iconWrap {
+  animation-duration: 2.8s;
+}
+
+.card:nth-child(2) .iconWrap {
+  animation-delay: -0.6s;
+}
+
+.card:nth-child(3) .iconWrap {
+  animation-delay: -1.2s;
+}
+
+.card:nth-child(4) .iconWrap {
+  animation-delay: -1.8s;
+}
+
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes reasonIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes iconSpinBob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  66% {
+    transform: translateY(2px) rotate(2deg);
+  }
+}
+
+@keyframes titleSheen {
+  0%,
+  100% {
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    text-shadow: 0 0 22px rgba(255, 96, 140, 0.35);
+  }
+}

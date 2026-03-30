@@ -1,0 +1,171 @@
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: calc(100% - 16px);
+    padding: 16px 0 36px;
+  }
+}
+
+.ambient {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.blob1,
+.blob2,
+.blob3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+.blob1 {
+  width: min(420px, 55vw);
+  height: min(420px, 55vw);
+  background: radial-gradient(circle, rgba(255, 45, 92, 0.55) 0%, transparent 70%);
+  left: -8%;
+  top: 8%;
+  animation: blobDriftA 22s ease-in-out infinite;
+}
+
+.blob2 {
+  width: min(360px, 45vw);
+  height: min(360px, 45vw);
+  background: radial-gradient(circle, rgba(196, 52, 120, 0.4) 0%, transparent 70%);
+  right: -6%;
+  top: 35%;
+  animation: blobDriftB 26s ease-in-out infinite;
+}
+
+.blob3 {
+  width: min(300px, 40vw);
+  height: min(300px, 40vw);
+  background: radial-gradient(circle, rgba(255, 99, 140, 0.35) 0%, transparent 70%);
+  left: 25%;
+  bottom: -5%;
+  animation: blobDriftC 20s ease-in-out infinite;
+}
+
+.spark,
+.spark2 {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(255, 120, 160, 0.35);
+  border-radius: 22px;
+  transform: rotate(12deg);
+  animation: sparkSpin 16s linear infinite;
+  opacity: 0.55;
+  top: 18%;
+  right: 12%;
+  box-shadow: 0 0 40px rgba(255, 72, 113, 0.15);
+}
+
+.spark2 {
+  width: 80px;
+  height: 80px;
+  top: 55%;
+  left: 8%;
+  animation: sparkSpin 22s linear infinite reverse;
+  border-radius: 50%;
+}
+
+.page > :not(.ambient) {
+  animation: sectionReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.page > :not(.ambient):nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.page > :not(.ambient):nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.page > :not(.ambient):nth-child(5) {
+  animation-delay: 0.28s;
+}
+
+.page > :not(.ambient):nth-child(6) {
+  animation-delay: 0.36s;
+}
+
+.page > :not(.ambient):nth-child(7) {
+  animation-delay: 0.44s;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.982);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes blobDriftA {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6vw, 4vh, 0) scale(1.06);
+  }
+  66% {
+    transform: translate3d(-4vw, 8vh, 0) scale(0.96);
+  }
+}
+
+@keyframes blobDriftB {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-8vw, -6vh, 0) scale(1.08);
+  }
+}
+
+@keyframes blobDriftC {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(10vw, -4vh, 0) scale(1.04);
+  }
+  80% {
+    transform: translate3d(-6vw, 2vh, 0) scale(0.94);
+  }
+}
+
+@keyframes sparkSpin {
+  from {
+    transform: rotate(12deg);
+  }
+  to {
+    transform: rotate(372deg);
+  }
+}

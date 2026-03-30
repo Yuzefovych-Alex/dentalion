@@ -1,0 +1,177 @@
+.section {
+  margin-top: 28px;
+  position: relative;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 4vw, 38px);
+  animation: titleSheen 6s ease-in-out infinite;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 70, 110, 0.35);
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(
+    155deg,
+    rgba(72, 20, 33, 0.35),
+    rgba(17, 9, 14, 0.92)
+  );
+  backdrop-filter: blur(12px);
+  transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+  animation: cardRise 0.65s ease both;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -40% 45%;
+  background: linear-gradient(120deg, transparent, rgba(255, 121, 169, 0.22), transparent);
+  transform: translateX(-120%) rotate(18deg);
+  transition: transform 0.6s ease;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 110, 145, 0.45);
+  color: #ff8fb0;
+  background: rgba(255, 60, 100, 0.08);
+  transition: transform 0.26s ease, box-shadow 0.26s ease;
+  animation: iconLevitate 4.2s ease-in-out infinite;
+}
+
+.iconSvg {
+  width: 26px;
+  height: 26px;
+}
+
+.corner {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 100, 130, 0.28);
+  color: #ff9eb8;
+  opacity: 0.85;
+  animation: cornerNudge 3.5s ease-in-out infinite;
+}
+
+.cornerSvg {
+  width: 18px;
+  height: 18px;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255, 130, 160, 0.6);
+  box-shadow: 0 16px 36px rgba(255, 53, 109, 0.28);
+}
+
+.card:hover::after {
+  transform: translateX(180%) rotate(18deg);
+}
+
+.card:hover .icon {
+  transform: scale(1.06) rotate(-4deg);
+  box-shadow: 0 0 22px rgba(255, 87, 140, 0.45);
+}
+
+.card:nth-child(2) .icon {
+  animation-delay: -0.4s;
+}
+
+.card:nth-child(3) .icon {
+  animation-delay: -0.8s;
+}
+
+.card:nth-child(4) .icon {
+  animation-delay: -1.2s;
+}
+
+.cardTitle {
+  margin: 14px 0 8px;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+}
+
+.cardText {
+  margin: 0;
+  color: #d6b4bf;
+  line-height: 1.45;
+}
+
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes iconLevitate {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes cornerNudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
+}
+
+@keyframes titleSheen {
+  0%,
+  100% {
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    text-shadow: 0 0 22px rgba(255, 96, 140, 0.35);
+  }
+}

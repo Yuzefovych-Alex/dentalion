@@ -1,0 +1,12 @@
+.emergencyServices__container__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style: none;
+    padding: 0;
+}
+
+.emergencyServices__container__list__item {
+    width: 15rem;
+    height: 10rem;
+    background-color: #810000;
+}
