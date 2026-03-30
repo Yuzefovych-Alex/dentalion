@@ -1,6 +1,6 @@
 import styles from "./Hero.module.css";
 import HeroLogoCanvas from "./HeroLogoCanvas";
-import { IconTeleSend, IconFolder } from "../icons/Icons";
+import { IconTeleSend } from "../icons/Icons";
 
 export default function Hero() {
   return (
@@ -17,14 +17,19 @@ export default function Hero() {
           Создаю: сайты, ботов, софт, автоматизацию и Web3 решения.
         </p>
         <div className={styles.actions}>
-          <button type="button" className={styles.primaryBtn}>
+          <a
+            className={styles.primaryBtn}
+            href="https://t.me/Dentalion_Black"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconTeleSend className={styles.btnIcon} />
             <span>Написать в Telegram</span>
-          </button>
-          <button type="button" className={styles.secondaryBtn}>
+          </a>
+          {/*<button type="button" className={styles.secondaryBtn}>
             <IconFolder className={styles.btnIcon} />
             <span>Портфолио</span>
-          </button>
+          </button>*/}
         </div>
       </div>
       <div className={styles.preview}>

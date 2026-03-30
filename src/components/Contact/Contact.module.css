@@ -64,6 +64,7 @@
   transition: transform 0.28s ease, box-shadow 0.28s ease;
   overflow: hidden;
   animation: ctaPulse 2.6s ease-in-out infinite;
+  text-decoration: none;
 }
 
 .ctaGlow {

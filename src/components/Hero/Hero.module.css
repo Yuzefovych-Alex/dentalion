@@ -132,6 +132,7 @@
   min-width: min(100%, 160px);
   white-space: normal;
   text-align: center;
+  text-decoration: none;
 }
 
 .btnIcon {
