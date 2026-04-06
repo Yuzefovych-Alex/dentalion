@@ -1,7 +1,7 @@
 import styles from "./Hero.module.css";
 import { Link } from "react-router-dom";
 import HeroLogoCanvas from "./HeroLogoCanvas";
-import { IconTeleSend, IconFolder, IconTag, IconUser } from "../icons/Icons";
+import { IconTeleSend, IconUser } from "../icons/Icons";
 
 export default function Hero() {
   return (
