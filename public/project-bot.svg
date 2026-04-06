@@ -1,0 +1,16 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" rx="24" fill="#110911"/>
+  <rect x="42" y="42" width="1196" height="636" rx="20" fill="#1A0E1A" stroke="#5F2740"/>
+  <rect x="90" y="90" width="1100" height="62" rx="12" fill="#2A1625"/>
+  <rect x="116" y="112" width="260" height="18" rx="9" fill="#FF4D7A"/>
+  <rect x="90" y="184" width="640" height="452" rx="14" fill="#21111E"/>
+  <rect x="760" y="184" width="430" height="452" rx="14" fill="#241320"/>
+  <rect x="126" y="226" width="568" height="76" rx="12" fill="#31182B"/>
+  <rect x="126" y="324" width="400" height="76" rx="12" fill="#31182B"/>
+  <rect x="126" y="422" width="508" height="76" rx="12" fill="#31182B"/>
+  <rect x="126" y="520" width="360" height="76" rx="12" fill="#31182B"/>
+  <rect x="796" y="226" width="358" height="170" rx="12" fill="#31182B"/>
+  <rect x="796" y="422" width="358" height="170" rx="12" fill="#31182B"/>
+  <circle cx="860" cy="282" r="22" fill="#FF4D7A"/>
+  <circle cx="860" cy="478" r="22" fill="#FF4D7A"/>
+</svg>

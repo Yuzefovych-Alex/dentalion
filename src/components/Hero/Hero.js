@@ -1,6 +1,7 @@
 import styles from "./Hero.module.css";
+import { Link } from "react-router-dom";
 import HeroLogoCanvas from "./HeroLogoCanvas";
-import { IconTeleSend } from "../icons/Icons";
+import { IconTeleSend, IconFolder, IconTag, IconUser } from "../icons/Icons";
 
 export default function Hero() {
   return (
@@ -26,10 +27,20 @@ export default function Hero() {
             <IconTeleSend className={styles.btnIcon} />
             <span>Написать в Telegram</span>
           </a>
-          {/*<button type="button" className={styles.secondaryBtn}>
+          {/* 
+          <Link to="/portfolio" className={styles.secondaryBtn}>
             <IconFolder className={styles.btnIcon} />
             <span>Портфолио</span>
-          </button>*/}
+          </Link>
+          <Link to="/market" className={styles.secondaryBtn}>
+            <IconTag className={styles.btnIcon} />
+            <span>Маркет</span>
+          </Link>
+          */}
+          <Link to="/partner" className={styles.secondaryBtn}>
+            <IconUser className={styles.btnIcon} />
+            <span>Партнёрка</span>
+          </Link>
         </div>
       </div>
       <div className={styles.preview}>
