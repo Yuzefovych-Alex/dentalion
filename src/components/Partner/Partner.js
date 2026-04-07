@@ -2,20 +2,94 @@ import { Link } from "react-router-dom";
 import styles from "./Partner.module.css";
 import contactStyles from "../Contact/Contact.module.css";
 import PartnerLogoCanvas from "./PartnerLogoCanvas";
-import { IconFolder, IconTeleSend, IconUser } from "../icons/Icons";
+import {
+  IconArrowOut,
+  IconBolt,
+  IconChip,
+  IconFolder,
+  IconGear,
+  IconShield,
+  IconSpark,
+  IconTag,
+  IconTeleSend,
+  IconUser,
+} from "../icons/Icons";
 
-const benefits = [
+const programSections = [
   {
-    title: "Скидки и бонусы",
-    text: "Специальные условия для постоянных клиентов и рекомендаций.",
+    number: "1",
+    title: "Общие положения",
+    Icon: IconUser,
+    items: [
+      "Партнёрская программа предназначена для сотрудничества с лицами, которые привлекают клиентов на услуги разработки (кодинга).",
+      "Участником программы может стать любой человек, готовый привлекать заказы или клиентов.",
+    ],
   },
   {
-    title: "Приоритет в работе",
-    text: "Быстрее стартуют задачи партнёров в очереди разработки.",
+    number: "2",
+    title: "Суть партнёрства",
+    Icon: IconBolt,
+    lead: "Партнёр получает вознаграждение за:",
+    items: ["передачу заказов", "привлечение новых клиентов"],
+    footer:
+      "Если клиент пришёл по рекомендации партнёра или через его канал (ссылка, личное сообщение, соцсети и т.д.), такой клиент закрепляется за партнёром.",
   },
   {
-    title: "Прозрачные условия",
-    text: "Фиксируем формат сотрудничества и сроки без скрытых платежей.",
+    number: "3",
+    title: "Вознаграждение",
+    Icon: IconTag,
+    items: [
+      "Партнёр получает процент с каждого оплаченного заказа, пришедшего через него.",
+      "Фиксированный процент с заказа (5–10%).",
+      "Фиксированная сумма за клиента.",
+      "Индивидуальные условия для крупных партнёров.",
+    ],
+  },
+  {
+    number: "4",
+    title: "Учёт клиентов",
+    Icon: IconChip,
+    highlight: true,
+    highlightTitle: "Клиент считается закреплённым за партнёром, если:",
+    items: [
+      "он напрямую указал партнёра;",
+      "переписка / доказательства подтверждают источник;",
+      "заказ пришёл через уникальный контакт партнёра.",
+    ],
+  },
+  {
+    number: "5",
+    title: "Выплаты",
+    Icon: IconGear,
+    items: [
+      "Выплаты партнёру производятся после получения оплаты от клиента.",
+      "В оговорённые сроки (например, раз в неделю или по запросу).",
+      "Способ оплаты обсуждается индивидуально.",
+    ],
+  },
+  {
+    number: "6",
+    title: "Ограничения",
+    Icon: IconShield,
+    lead: "Запрещается:",
+    items: [
+      "спам и навязчивое привлечение клиентов;",
+      "введение клиентов в заблуждение;",
+      "использование фейковых заказов.",
+    ],
+    warning:
+      "При нарушении условий участие в программе может быть прекращено.",
+  },
+  {
+    number: "7",
+    title: "Дополнительно",
+    Icon: IconSpark,
+    lead: "Для активных партнёров возможны:",
+    items: [
+      "повышенные проценты;",
+      "приоритет в работе;",
+      "долгосрочное сотрудничество.",
+    ],
   },
 ];
 
@@ -66,22 +140,62 @@ export default function Partner() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Что даёт партнёрка</h2>
-        <div className={styles.grid}>
-          {benefits.map((item, index) => (
-            <article
-              key={item.title}
-              className={styles.card}
-              style={{ animationDelay: `${index * 0.07}s` }}
-            >
-              <div className={styles.cardIcon}>
-                <IconUser className={styles.cardIconSvg} />
-              </div>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardText}>{item.text}</p>
-            </article>
-          ))}
+      <section className={styles.program} aria-labelledby="partner-program-heading">
+        <div className={styles.programShell}>
+          <div className={styles.programShellRing} aria-hidden />
+          <div className={styles.programHeader}>
+            <span className={styles.programEyebrow}>Условия сотрудничества</span>
+            <h2 id="partner-program-heading" className={styles.programMainTitle}>
+              Партнёрская программа
+            </h2>
+            <p className={styles.programIntro}>
+              Ниже — условия сотрудничества по разделам. Перед стартом всё можно уточнить в Telegram.
+            </p>
+          </div>
+          <div className={styles.programGrid}>
+            {programSections.map((block, index) => {
+              const { Icon } = block;
+              return (
+                <article
+                  key={block.number}
+                  className={
+                    block.highlight
+                      ? `${styles.programCard} ${styles.programCardHighlight}`
+                      : styles.programCard
+                  }
+                  style={{ animationDelay: `${index * 0.07}s` }}
+                >
+                  <div className={styles.programCardTop}>
+                    <div className={styles.programIconBox}>
+                      <Icon className={styles.programIconSvg} />
+                      <span className={styles.programStepNum} aria-hidden>
+                        {block.number}
+                      </span>
+                    </div>
+                    <span className={styles.programCorner} aria-hidden>
+                      <IconArrowOut className={styles.programCornerSvg} />
+                    </span>
+                  </div>
+                  <h3 className={styles.programCardTitle}>{block.title}</h3>
+                  {block.highlight && block.highlightTitle ? (
+                    <p className={styles.programHighlightLabel}>{block.highlightTitle}</p>
+                  ) : null}
+                  {block.lead ? <p className={styles.programItemLead}>{block.lead}</p> : null}
+                  <ul className={styles.programList}>
+                    {block.items.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                  {block.footer ? <p className={styles.programFooter}>{block.footer}</p> : null}
+                  {block.warning ? (
+                    <p className={styles.programWarning} role="note">
+                      {block.warning}
+                    </p>
+                  ) : null}
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 import styles from "./Hero.module.css";
 import { Link } from "react-router-dom";
 import HeroLogoCanvas from "./HeroLogoCanvas";
-import { IconTeleSend, IconUser } from "../icons/Icons";
+import { IconTeleSend, /*IconFolder, IconTag,*/ IconUser } from "../icons/Icons";
 
 export default function Hero() {
   return (
@@ -27,7 +27,7 @@ export default function Hero() {
             <IconTeleSend className={styles.btnIcon} />
             <span>Написать в Telegram</span>
           </a>
-          {/* 
+          {/*
           <Link to="/portfolio" className={styles.secondaryBtn}>
             <IconFolder className={styles.btnIcon} />
             <span>Портфолио</span>
